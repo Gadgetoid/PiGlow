@@ -5,6 +5,7 @@
 ##            jase@boeeerb.co.uk                   ##
 #####################################################
 ##
+## v0.51- Removed RPI for Pi 2 temp fix     - 10/02/15
 ## v0.5 - Add RPI VER 3 for model B+         - 26/08/14
 ## v0.4 - Auto detect Raspberry Pi revision  - 17/08/13
 ## v0.3 - Added fix from topshed             - 17/08/13
@@ -13,22 +14,13 @@
 ##
 
 from smbus import SMBus
-import RPi.GPIO as rpi
 
 bus = 0
 
 class PiGlow:
 
     def __init__(self):
-        if rpi.RPI_REVISION == 1:
-            i2c_bus = 0
-        elif rpi.RPI_REVISION == 2:
-            i2c_bus = 1
-        elif rpi.RPI_REVISION == 3:
-            i2c_bus = 1
-        else:
-            print "Unable to determine Raspberry Pi revision."
-            exit
+        i2c_bus = 1
 
         self.bus = SMBus(i2c_bus)
         self.bus.write_i2c_block_data(0x54, 0x00, [0x01])
