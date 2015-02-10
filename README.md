@@ -2,6 +2,18 @@
 
 Here is a small Python module for the PiGlow addon by Pimoroni, it will let you flex the LED muscles of this fantastic addon.
 
+## Note
+
+This fork removes RPi.GPIO so it can run on the Raspberry Pi 2 without requiring any pre-release software. Install with:
+
+```
+git clone https://github.com/Gadgetoid/PiGlow
+cd PiGlow
+sudo python setup.py install
+```
+
+And then use as normal!
+
 ## Files
 
  - piglow.py - Python module you'll import into your script
