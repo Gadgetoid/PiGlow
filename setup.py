@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from distutils.core import setup
 
 classifiers = ['Development Status :: 4 - Beta',
@@ -10,16 +11,16 @@ classifiers = ['Development Status :: 4 - Beta',
                'Topic :: Software Development',
                'Topic :: System :: Hardware']
 
-setup(name	= 'PiGlow',
-version	= '0.4',
-author	= 'Jason Barnett',
-author_email	= 'jase@boeeerb.co.uk',
+setup(name	= 'Pimoroni-PiGlow',
+version 	= '1.0.1',
+author        	= 'Philip Howard',
+author_email	= 'phil@pimoroni.com',
 description	= 'A module to control the PiGlow Raspberry Pi Addon Board',
 long_description= 'A module to control the PiGlow Raspberry Pi Addon Board',
-license	= 'MIT',
+license	        = 'MIT',
 keywords	= 'Raspberry Pi PiGlow',
-url	= 'http://www.boeeerb.co.uk',
-classifiers = classifiers,
+url	        = 'http://www.pimoroni.com',
+classifiers     = classifiers,
 py_modules	= ['piglow'],
-install_requires= ['rpi.gpio >= 0.5.4']
+install_requires= ['sn3218','rpi.gpio >= 0.5.4']
 )

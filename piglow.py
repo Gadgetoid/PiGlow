@@ -14,19 +14,24 @@
 ##
 
 from smbus import SMBus
-
-bus = 0
+import atexit
+import sn3218
 
 class PiGlow:
 
     def __init__(self):
-        i2c_bus = 1
+	sn3218.enable()
+	self.leds = [0x00] * 18
 
         self.bus = SMBus(i2c_bus)
         self.bus.write_i2c_block_data(0x54, 0x00, [0x01])
         self.bus.write_byte_data(0x54, 0x13, 0xFF)
         self.bus.write_byte_data(0x54, 0x14, 0xFF)
         self.bus.write_byte_data(0x54, 0x15, 0xFF)
+        atexit.register(self.off)
+
+    def off(self):
+        self.all(0)
 
     def white(self, value):
         self.bus.write_byte_data(0x54, 0x0A, value)
